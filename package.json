@@ -1,0 +1,14 @@
+{
+  "name": "back-end-api",
+  "version": "1.0.0",
+  "description": " Não sei o que por na descrição da minha API",
+  "main": "server.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Mizael Miranda Barbosa",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
