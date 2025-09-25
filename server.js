@@ -4,25 +4,28 @@
 import express from "express"; // Requisição do pacote do express
 import pkg from "pg"; // Requisição do pacote do pg (PostgreSQL)
 import dotenv from "dotenv"; // Importa o pacote dotenv para carregar variáveis de ambiente
+
+
 // ######
 // Local onde as configurações do servidor serão feitas
 // ######
+
 const app = express(); // Inicializa o servidor Express
 const port = 3000; // Define a porta onde o servidor irá escutar
 dotenv.config(); // Carrega as variáveis de ambiente do arquivo .env
+
+
 const { Pool } = pkg; // Obtém o construtor Pool do pacote pg para gerenciar conexões com o banco de dados PostgreSQL
-//server.js
+
 let pool = null; // Variável para armazenar o pool de conexões com o banco de dados
 
 //server.js
 // Função para obter uma conexão com o banco de dados
 function conectarBD() {
   if (!pool) {
-    const db = new Pool({
-      // Cria uma nova instância do Pool para gerenciar conexões com o banco de dados
-      connectionString: process.env.URL_BD, // Usa a variável de ambiente do arquivo .env DATABASE_URL para a string de conexão
+    pool = new Pool({
+      connectionString: process.env.URL_BD,
     });
-
   }
   return pool;
 }
@@ -32,7 +35,7 @@ function conectarBD() {
 //server.js
 app.get("/questoes", async (req, res) => {
   //server.js
-const db = conectarBD(); // Cria uma nova instância do Pool para gerenciar conexões com o banco de dados
+  const db = conectarBD(); // Cria uma nova instância do Pool para gerenciar conexões com o banco de dados
   console.log("Rota GET /questoes solicitada"); // Log no terminal para indicar que a rota foi acessada
   //server.js
 
@@ -51,9 +54,10 @@ const db = conectarBD(); // Cria uma nova instância do Pool para gerenciar cone
     });
   }
 });
+
 app.get("/", async (req, res) => {
   //server.js
-const db = conectarBD(); // Cria uma nova instância do Pool para gerenciar conexões com o banco de dados
+  const db = conectarBD(); // Cria uma nova instância do Pool para gerenciar conexões com o banco de dados
   // Rota raiz do servidor
   // Rota GET /
   // Esta rota é chamada quando o usuário acessa a raiz do servidor
