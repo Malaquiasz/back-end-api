@@ -1,0 +1,25 @@
+meta {
+  name: postQuestions
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://silver-spork-x5gqp4vw79pc9qxr-3000.app.github.dev/questoes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "enunciado": "Qual é a capital da França?",
+    "disciplina": "Geografia",
+    "tema": "Capitais do mundo",
+    "nivel": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

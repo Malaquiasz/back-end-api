@@ -1,0 +1,33 @@
+meta {
+  name: putObjetos
+  type: http
+  seq: 12
+}
+
+put {
+  url: https://silver-spork-x5gqp4vw79pc9qxr-3000.app.github.dev/objetos/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 2
+}
+
+body:json {
+  {
+    "titulo": "Mochila Nike azul",
+    "descricao": "Mochila Nike azul com zíper quebrado, encontrada no ginásio",
+    "categoria": "Vestuário",
+    "local": "Ginásio Poliesportivo",
+    "dataExpiracao": "2024-12-01",
+    "palavraPasse": "mochila456",
+    "contatoInstagram": "@encontre_minha_mochila"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
